@@ -24,7 +24,48 @@ require_relative 'data_set'
 require_relative 'html_helper'  
 require_relative 'chart_maker'   # for display line/bar chart
 
-############## class #########################
+
+
+
+
+############## class Account #########################
+class Account
+  attr_reader :user,
+              :fullname,
+			  :vaccine,
+              :date
+  @@accounts = Hash.new			 
+  def self.get_account(input)
+  if ! @@accounts[input]
+    raise "get_account: user:'#{input}' not specfied"
+  end
+  return @@accounts[input]
+  end
+  def self.accounts
+    @@accounts
+  end
+  
+  			  
+  def initialize(args=Hash.new)
+    @user = args[:user]
+  end
+  
+  def fullname! input
+    @fullname = input
+  end
+  
+  def date! input
+    @date = input
+  end
+  
+  def vaccine! input
+    @vaccine = input
+  end
+end
+  
+  
+
+############## class Vaccine #########################
 class Vaccine
 
   attr_reader :name,
@@ -32,6 +73,7 @@ class Vaccine
               :chart_efficacy_rate
 
   @@all_vaccines_array = []
+  @@all_vaccines_choices  = ['none']  # the vaccine choices the user can have
 
   def self.add_data!(current_vaccine,current_data)
     new_data = Marshal.load(Marshal.dump(current_data))
@@ -43,6 +85,11 @@ class Vaccine
     @@all_vaccines_chart.add_data! new_data
 
     @@all_vaccines_array << current_vaccine
+	@@all_vaccines_choices << current_vaccine.name
+  end
+  
+  def self.all_vaccine_choices
+	@@all_vaccines_choices
   end
 
   def self.init_all_vaccines
@@ -271,11 +318,29 @@ post "/login/?" do
   username = params[:username]
   #print "login user name is #{username}\n"
   set_session_username(username)
+  if ! Account.accounts[user_name]
+    Account.account[user_name] = Account.new(user: user_name)
+  end
   #target = url('all_racks')
   #if session['attempted_url']
   #    target = session['attempted_url']
   #    session['attempted_url'] = nil
   #end
+  redirect "/"
+end
+
+get "/account/?" do
+  haml :account
+end
+
+post "/save_account/?" do
+  puts "save user:'#{session_username}' account param is #{params}"
+  if ! @account[session_username]
+    raise "can't find user account name #{session_username}"
+  end
+  @account[session_username].fullname! params['fullname']
+  @account[session_username].date! params['date']
+  @account[session_username].vaccine! params['vaccine']
   redirect "/"
 end
 

@@ -35,6 +35,8 @@
                 %a.dropdown-toggle{href: "#", "data-toggle" => "dropdown"}= session_username
                 %ul.dropdown-menu
                   %li
+                    %a{href: url("account")} account
+                  %li
                     %a{href: url("logout")} Logout
             -else
               %li
