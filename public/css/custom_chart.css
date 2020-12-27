@@ -1,0 +1,82 @@
+.chart_btn {
+  background: AliceBlue ;
+  background-image: -webkit-linear-gradient(top, AliceBlue , Azure );
+  background-image: -moz-linear-gradient(top, AliceBlue , Azure );
+  background-image: -ms-linear-gradient(top, AliceBlue , Azure );
+  background-image: -o-linear-gradient(top, AliceBlue , Azure );
+  background-image: linear-gradient(to bottom, AliceBlue , Azure );
+  -webkit-border-radius: 27;
+  -moz-border-radius: 27;
+  border-radius: 27px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 13px;
+  padding: 2px 2px 2px 2px;
+  border: solid #1f628d 1px;
+  margin: 5px;
+  text-decoration: none;
+}
+
+.chart_btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+  margin: 5px;
+}
+.puny_chart {
+  background-color: rgb(245, 255, 245);
+  border: thin solid black;   
+  padding: 5px 5px 5px 5px;
+  margin: 5px 5px 5px 5px;
+  width: 100px;  
+  height: 100px;
+}
+
+.tiny_chart {
+  background-color: rgb(245, 255, 245);
+  border: thin solid black;   
+  padding: 5px 5px 5px 5px;
+  margin: 5px 5px 5px 5px;
+  width: 300px;  
+  height: 300px;
+}
+
+.small_chart {
+  background-color: rgb(245, 255, 245);
+  border: thin solid black;   
+  padding: 5px 5px 5px 5px;
+  margin: 5px 5px 5px 5px;
+  width: 450px;  /* so I can fit 4 charts in 1920x1080 (450 *  4) ==  1800*/
+  height: 300px;
+}
+
+.medium_chart{
+  background-color: rgb(245, 255, 245);
+  border: thin solid black; 
+  padding: 5px 5px 5px 5px;
+  margin: 5px 5px 5px 5px;
+  width: 600px; /* can fit 3 charts in 1920x1080 */
+  height: 400px;
+}
+.large_chart {
+  background-color: rgb(245, 255, 245);
+  border: thin solid black;   
+  padding: 5px 5px 5px 5px;
+  margin: 5px 5px 5px 5px; 
+  width: 900px;  /* can fit 2 charts in 1920x1080 */
+  height: 400px;
+}
+.huge_chart {
+  background-color: rgb(245, 255, 245);
+  border: thin solid black;   
+  padding: 5px 5px 5px 5px;
+  margin: 5px 5px 5px 5px; 
+  width: 1800px;  /* can not be geckboard.  make it full screen */
+  height: 800px;
+}
+
+

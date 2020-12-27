@@ -1,0 +1,17 @@
+source :rubygems
+
+gem "net-ssh", "~> 2.7.0"
+gem "net-scp", "~> 1.1.2"
+#gem "ffi", "~> 1.9.0"
+gem "rack", "~> 1.5.2"
+gem "haml", "~> 4.0.2"
+#gem "activerecord", "~> 3.2.13"
+#gem "activerecord-import", "~> 0.3.1"
+#gem "mysql2", "~> 0.3.11"
+#gem "mysql", "~> 2.9.1"
+gem "sinatra", "~> 1.4.2"
+gem "pry", "~> 0.9.12"
+gem "thin", "~> 1.5.1"
+gem "awesome_print", "~> 1.2.0"
+#gem "pony", "~> 1.4"
+#gem "rmagick", "~> 2.13.2"

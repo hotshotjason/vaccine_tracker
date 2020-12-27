@@ -1,0 +1,86 @@
+/*!
+ * Start Bootstrap - Simple Sidebar (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+ body {
+/*    overflow-x: hidden; */
+ }
+
+/* Toggle Styles */
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 450px;
+}
+
+#sidebar-wrapper {
+  /* when window is narrow make sidebar disapper */
+    z-index: 1000;
+    position: fixed;
+    left: 450px;
+    width: 0;
+    height: 100%;
+    margin-left: -445px;
+    overflow-y: auto;             /* gives the scroll bar */
+    background: white;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 450px;
+}
+#page-content-wrapper {
+  /* when window is narrow make page-content-wrapper fill the whole screen */
+  width: 100%
+  margin-left: 0px;                     
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -450px;
+}
+
+@media(min-width:1024px) {  /* when screen is at least 1000 pixel width, I can display more things like sidebar*/
+    #wrapper {
+        padding-left: 50px;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {   /* window is wide display side bar */
+        width: 450px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+
+    #page-content-wrapper {   /* window is wide, display content right of side bar
+      /* note because I use margin-left 400px, I need to max the width 100% - 400px so page_content-wrapper fits in the windows */
+      width: -moz-calc(100% - 400px);
+      width: -webkit-calc(100% - 400px);
+      width: calc(100% - 400px);
+      margin-left: 400px;
+    }
+
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}

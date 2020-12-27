@@ -1,0 +1,243 @@
+/* default.haml */
+.table_of_content_section {
+  background-color: rgb(240, 247, 255) ;
+  border: thin solid black;
+  padding: 5px 5px 5px 5px;
+  margin: 5px 5px 5px 5px;
+
+}
+
+.error_message {
+  color: red
+}
+
+.watermark{
+  /*background:url("https://www.google.co.in/images/srpr/logo11w.png") top left repeat-x;opacity:0; */
+  background:url("/VIA_Confidential.svg") center right repeat-x;opacity:0; 
+  opacity: 0.1;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  /* watermark top layer. so need to make pointer-events none so we can click thru and get to lower layer */
+  pointer-events: none;       
+}
+
+.custom-container {  /* wrap this under container-fluid.  have padding so can see the text */
+  padding:20px;
+}
+
+/* for the .highlight class  in js/jquery.highlight-5.js */
+.highlight { background-color: yellow }
+
+/*  Header box */
+table.header-table {
+  table-layout: fixed;      /* this prevents column resizing */
+  width: 100%;
+  border: 0px solid black;
+}
+table.x86-table td.search{   
+  width: 60%;
+}
+
+
+/* both search-box and search-status has width of 80% so they look good */
+.search-box { 
+   width: 80%;
+   padding: 12px 20px;
+   margin: 8px 0;
+   box-sizing: border-box;
+}
+.search-instruction {    /* for searching just the instruction field */
+   width: 80%;
+   padding: 12px 20px;
+   margin: 8px 0;
+   box-sizing: border-box;
+}
+
+p#search-status {
+  width: 80%;
+}
+
+
+
+/*  X86 Metasm Instruction Table */
+
+table.x86-table {
+  table-layout: fixed;      /* this prevents column resizing */
+  width: 100%;
+  border: 1px solid black;
+}
+
+table.x86-table td.really_short {   /* for column with short text */
+  border: 1px solid black;
+  width: 5%;
+}
+
+table.x86-table td.short {   /* for column with short text */
+  border: 1px solid black;
+  width: 15%;
+}
+table.x86-table td.opcode {   /* for column with long text */
+  border: 1px solid black;
+  width: 20%;
+}
+table.x86-table td.instruction {   /* for column with long text */
+  border: 1px solid black;
+  width: 20%;
+}
+table.x86-table td.description {   /* for column with long text */
+  border: 1px solid black;
+  width: 40%;
+}
+
+/*  X86 Instruction Table (for manual ) */
+
+table.x86-inst-table {
+  table-layout: fixed;      /* this prevents column resizing */
+  width: 100%;
+  border: 0px solid black;
+}
+
+table.x86-inst-table td.really_short {   /* for column with short text */
+  width: 5%;
+}
+
+table.x86-inst-table td.short {   /* for column with short text */
+  width: 8%;
+}
+table.x86-inst-table td.opcode {   /* for column with long text */
+  width: 20%;
+}
+table.x86-inst-table td.instruction {   /* for column with long text */
+  width: 20%;
+}
+table.x86-inst-table td.description {   /* for column with long text */
+  width: 40%;
+}
+
+/* instruction box */
+
+div.instruction_group_box {     /* match intel manual on style for one insturctiong roup */
+  border: 1px solid blue; 
+  padding: 10px 10px;
+  margin: 10px;
+}
+div.table_box {     /* draw a black line around a table  */
+  border: 1px solid black; 
+  padding: 10px 10px;
+  margin: 10px;
+}
+
+table.operands-table {
+  table-layout: fixed;      /* this prevents column resizing */
+  width: 100%;
+  border: 0px solid black;
+}
+
+table.operands-table td.short {   /* for column with operands */
+  border: 0px solid black;
+  width: 20%;
+}
+
+
+/* for making table looks like intel manual */
+x86-remain {
+  table-layout: fixed;      /* this prevents column resizing */
+  width: 100%;
+}
+
+table.x86-table_remain tr {   /* for column with short text */
+  border: 1px solid blue;
+}
+
+
+.x86_display_header {
+  color: blue;
+}
+
+.x86_display_info {
+  color: black;
+  padding-left: 5%;    /* give you the illusion there is a tab */
+}
+
+pre.display_info {
+  white-space: pre;
+  margin-top: 0;
+  display: block;
+  white-space: pre-wrap;                 /* CSS3 browsers  */
+  white-space: -moz-pre-wrap !important; /* 1999+ Mozilla  */
+  white-space: -pre-wrap;                /* Opera 4 thru 6 */
+  white-space: -o-pre-wrap;              /* Opera 7 and up */
+  word-wrap: break-word;                 /* IE 5.5+ and up */
+  /* overflow-x: auto; */                /* Firefox 2 only */
+  /* width: 99%; */          /* only if needed */
+}
+
+/*  JSON Table */
+
+table.json-table  {
+  table-layout: fixed;      /* this prevents column resizing */
+  border: 1px solid black;
+  width: 100%;
+}
+table.json-table td.very_short {   /* for column with short text */
+  border: 1px solid black ;
+  width: 3%;
+}
+
+table.json-table td.short {   /* for column with short text */
+  border: 1px solid black ;
+  width: 5%;
+}
+table.json-table td.medium_short{   /* for column with medium text */
+  border: 1px solid black ;
+  width: 7%;
+}
+table.json-table td.medium{   /* for column with medium text */
+  border: 1px solid black ;
+  width: 10%;
+}
+table.json-table td.medium_long {   /* for column with long text */
+  border: 1px solid black ;
+  width: 15%;
+}
+table.json-table td.long {   /* for column with long text */
+  border: 1px solid black ;
+  width: 20%;
+}
+
+/* table header */
+table.json-table th.very_short {   /* for column with short text */
+  border: 1px solid black ;
+  width: 3%;
+  background-color: aliceblue;
+}
+
+table.json-table th.short {   /* for column with short text */
+  border: 1px solid black ;
+  width: 5%;
+  background-color: aliceblue;
+}
+table.json-table th.medium_short{   /* for column with medium text */
+  border: 1px solid black ;
+  width: 7%;
+  background-color: aliceblue;
+}
+table.json-table th.medium{   /* for column with medium text */
+  border: 1px solid black ;
+  width: 10%;
+  background-color: aliceblue;
+}
+
+table.json-table th.medium_long{   /* for column with medium text */
+  border: 1px solid black ;
+  width: 15%;
+  background-color: aliceblue;
+}
+
+table.json-table th.long {   /* for column with long text */
+  border: 1px solid black ;
+  background-color: aliceblue;
+
+  width: 20%;
+}

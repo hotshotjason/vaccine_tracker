@@ -1,0 +1,16 @@
+.row
+  .span12
+    %div{style: "height: 5em;"}
+
+.row
+  .span4
+  .span8
+    %h2 Login
+    %form.form{method: 'post', action: url('login')}
+      .control-group
+        %label.control-label{for: "username"} Username
+        .controls
+          %input{name: 'username', type: 'text', placeholder: 'username'}
+      .control-group
+        .controls
+          %button.btn{type: 'submit'} Login

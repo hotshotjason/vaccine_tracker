@@ -1,0 +1,28 @@
+:javascript
+  $(document).ready(function() {
+    min = $('#time-left').text() || 0;
+    timer = setInterval(function() {
+      min -= 1
+      $('#time-left').text(min);
+    }, 60000);
+
+    setInterval(function() {
+      window.location.reload();
+    }, 1200000);  // reload once per 20 min
+  });
+
+.row
+  .span12
+    %div{style: "height: 3em;"}
+%div
+  auto refresh in
+  %span#time-left="20"
+  minutes
+.row
+  %table.header-table
+    %tr
+      %td
+        #{@chart_efficacy_rate.to_html(@chart_options) }
+    %tr 
+      %td
+        #{@chart_number.to_html(@chart_options) }
