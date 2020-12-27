@@ -106,12 +106,14 @@ class DataSet::Bnt162b2 < DataSet::Base
     add_efficacy_point(30,80); 
     add_efficacy_point(40,70); 
     add_efficacy_point(80,65); 
+	add_efficacy_point(100,60); 
   end
 
   def add_all_vaccinated
     add_number_vaccinated_point(2020,12,01,1000); 
     add_number_vaccinated_point(2020,12,30,10000); 
     add_number_vaccinated_point(2021,1,01,100000); 
+	add_number_vaccinated_point(2021,2,15,300000); 
   end
 
 
@@ -138,6 +140,7 @@ class DataSet::MRNA1273 < DataSet::Base
     add_number_vaccinated_point(2020,12,01,500); 
     add_number_vaccinated_point(2020,12,30,5000); 
     add_number_vaccinated_point(2021,1,01,50000); 
+	add_number_vaccinated_point(2021,2,15,100000); 
   end
 
 
