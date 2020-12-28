@@ -45,6 +45,32 @@ class Account
     @@accounts
   end
   
+  def self.accounts_file 
+    "users.json"
+  end
+  
+  def self.load_accounts!
+    return if ! File.exist? accounts_file
+	puts "found account file '#{accounts_file}'"
+	
+    cfg = JSON.parse(File.read(accounts_file))
+	cfg.each do |user_name,current_hash|
+	  @@accounts[user_name] = Account.new(user: user_name)
+	  @@accounts[user_name].load_hash(current_hash)
+	end
+  end
+  
+  def self.save_accounts!
+    @output_hash = Hash.new
+	@@accounts.each do |user_name,current_account|
+	  @output_hash[user_name] = current_account.to_hash
+	end
+	File.open(accounts_file,"w") do |handle|
+	  handle.puts @output_hash.to_json
+	end
+	puts "save to file #{accounts_file} successful"
+  end
+  
   			  
   def initialize(args=Hash.new)
     @user = args[:user]
@@ -60,6 +86,20 @@ class Account
   
   def vaccine! input
     @vaccine = input
+  end
+  
+  def load_hash(input)
+    @fullname = input['fullname'] 
+	@date = input['date']
+	@vaccine = input['vaccine']
+  end
+  
+  def to_hash
+    return_val = Hash.new
+	return_val['fullname'] = @fullname
+	return_val['date'] = @date
+	return_val['vaccine'] = @vaccine
+	return_val
   end
 end
   
@@ -93,6 +133,7 @@ class Vaccine
   end
 
   def self.init_all_vaccines
+    Account.load_accounts!
     #puts "ruby version #{RUBY_VERSION}"
     @@all_vaccines_chart = Vaccine.new(all: true)  # hold all vaccines data togher so we can draw a chart
     @@all_vaccines_array << @@all_vaccines_chart
@@ -291,7 +332,22 @@ end
 # home page page.
 get '/?' do
   #common_get_chart("BNT162b2")
-  common_get_chart("all")
+  
+  $user_vaccine = nil
+  user_name = session_username
+  if user_name
+    if Account.accounts[user_name]
+	  if Account.accounts[user_name].vaccine != "None"
+	    $user_vaccine = Account.accounts[user_name].vaccine
+	  end
+	end
+  end
+  
+  if ! $user_vaccine
+    common_get_chart("all")
+  else
+    common_get_chart($user_vaccine)
+  end
 
   haml :default
 end
@@ -315,11 +371,11 @@ end
 
 
 post "/login/?" do
-  username = params[:username]
-  #print "login user name is #{username}\n"
-  set_session_username(username)
+  user_name = params[:username]
+  #print "login user name is #{user_name}\n"
+  set_session_username(user_name)
   if ! Account.accounts[user_name]
-    Account.account[user_name] = Account.new(user: user_name)
+    Account.accounts[user_name] = Account.new(user: user_name)
   end
   #target = url('all_racks')
   #if session['attempted_url']
@@ -335,12 +391,16 @@ end
 
 post "/save_account/?" do
   puts "save user:'#{session_username}' account param is #{params}"
-  if ! @account[session_username]
+  current_account = Account.accounts[session_username]
+  if ! current_account
     raise "can't find user account name #{session_username}"
   end
-  @account[session_username].fullname! params['fullname']
-  @account[session_username].date! params['date']
-  @account[session_username].vaccine! params['vaccine']
+ 
+  current_account.fullname! params['fullname']
+  current_account.date! params['date']
+  current_account.vaccine! params['vaccine']
+  Account.save_accounts!
+  
   redirect "/"
 end
 
