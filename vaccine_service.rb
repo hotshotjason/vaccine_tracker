@@ -346,7 +346,7 @@ get '/?' do
   user_name = session_username
   if user_name
     if Account.accounts[user_name]
-	  if Account.accounts[user_name].vaccine != "None"
+	  if Account.accounts[user_name].vaccine != "none"
 	    $user_vaccine = Account.accounts[user_name].vaccine
 	  end
 	end
