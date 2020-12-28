@@ -363,14 +363,14 @@ class ChartMaker::Base
             open_tag('small',"user generated json has no chart expand function") 
           else  
             open_tag('small') do
-              open_tag('span','',class: 'chart_btn') do
-                open_tag('a',"Expand",href: "/chart_expand/#{chart_url}")
-              end
-              if @args[:time]  # if time chart, srg wants to button user can click to show status last month
-                open_tag('span','',class: 'chart_btn') do
-                  open_tag('a',"last month",href: "/chart_last_month/#{chart_url}")
-                end
-              end
+              #open_tag('span','',class: 'chart_btn') do
+               # open_tag('a',"Expand",href: "/chart_expand/#{chart_url}")
+              #end
+              #if @args[:time]  # if time chart, srg wants to button user can click to show status last month
+              #  open_tag('span','',class: 'chart_btn') do
+              #    open_tag('a',"last month",href: "/chart_last_month/#{chart_url}")
+              #  end
+              #end
               if @args[:title]  # jason 111516, intentionally write the chart's title here.  this one is useful when there are a lot of chart and people can search chart by using browser's search function
                 open_tag('span',"#{@args[:title]}");
               end

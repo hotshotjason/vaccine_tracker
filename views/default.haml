@@ -15,10 +15,6 @@
   .span12
     %div{style: "height: 3em;"}
 %div
-  auto refresh in
-  %span#time-left="20"
-  minutes 
-%div
   - if $user_vaccine
     User: #{session_username} select vaccine #{$user_vaccine}  on #{Account.accounts[session_username].date}
 .row
