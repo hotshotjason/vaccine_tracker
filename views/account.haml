@@ -1,0 +1,28 @@
+.row
+  .span12
+    %div{style: "height: 5em;"}
+
+.row
+  .span12
+  - if ! session_username
+    %div  no user session
+  - elsif  ! Account.account_exist?(session_username)
+    %div user '#{session_username}' account doesn't exist
+  - else
+    %form{ name: "save_account", method: "post", action: "/save_account"}
+      %p
+      .display-input="Full Name"
+      %input{type: 'text', name: 'fullname', value: "#{Account.get_account(session_username).fullname}"}
+      %p
+      .display-input="Vaccinated Date(MM/DD/YY)"
+      %input{type: 'text', name: 'date', value: "#{Account.get_account(session_username).date}"}
+      %p
+      .display-input="Vaccine"
+      %select{name: 'vaccine'}
+        - Vaccine.all_vaccine_choices.each do |current|
+          - if current == Account.get_account(session_username).vaccine
+            %option{value: "#{current}" , selected: 'selected'} #{current}
+          - else
+            %option{value: "#{current}" } #{current}
+      %p
+      %input{:type => "submit", :value => "Save", :class => "button"}

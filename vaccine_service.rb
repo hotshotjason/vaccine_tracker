@@ -36,11 +36,20 @@ class Account
               :date
   @@accounts = Hash.new			 
   def self.get_account(input)
-  if ! @@accounts[input]
-    raise "get_account: user:'#{input}' not specfied"
+    if ! @@accounts[input]
+      raise "get_account: user:'#{input}' not specfied"
+    end
+    return @@accounts[input]
   end
-  return @@accounts[input]
+  
+  def self.account_exist?(input)
+	if ! @@accounts[input]
+	 return false
+	end
+	return true
   end
+  
+
   def self.accounts
     @@accounts
   end
