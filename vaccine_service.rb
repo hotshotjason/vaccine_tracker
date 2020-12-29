@@ -147,16 +147,26 @@ class Vaccine
     @@all_vaccines_chart = Vaccine.new(all: true)  # hold all vaccines data togher so we can draw a chart
     @@all_vaccines_array << @@all_vaccines_chart
   
-    ###################  Vaccine ######################
+    ###################  First Vaccine ######################
     current_vaccine = Vaccine.new
     current_data = DataSet::Bnt162b2.new
     add_data!(current_vaccine,current_data)
 
-    ###################  Vaccine ######################
+    ###################  Second Vaccine ######################
     current_vaccine = Vaccine.new
     current_data = DataSet::MRNA1273.new
     add_data!(current_vaccine,current_data)
-
+	
+	###################### third vaccine #########################
+    current_vaccine = Vaccine.new
+    current_data = DataSet::SputnikV.new
+    add_data!(current_vaccine,current_data)
+	
+	###################### fourth vaccine #########################
+    current_vaccine = Vaccine.new
+    current_data = DataSet::EpiVacCorona.new
+    add_data!(current_vaccine,current_data)
+	
     ################## VERY END ##########################
     @@all_vaccines_chart.make_chart!
     

@@ -145,3 +145,65 @@ class DataSet::MRNA1273 < DataSet::Base
 
 
 end
+
+class DataSet::SputnikV < DataSet::Base
+
+  def initialize(args=Hash.new)
+    @name = "Sputnik-V"
+    @type = "Non Replicating Viral Vector"
+    @developer = "Gamaleya"
+    super
+    setup
+  end
+
+  def add_all_efficacy
+    add_efficacy_point(10,80); 
+    add_efficacy_point(30,79); 
+    add_efficacy_point(40,70); 
+    add_efficacy_point(80,40);
+    add_efficacy_point(100,35);	
+  end
+
+  def add_all_vaccinated
+    add_number_vaccinated_point(2020,12,01,7000); 
+    add_number_vaccinated_point(2020,12,30,70000); 
+    add_number_vaccinated_point(2021,1,01,700000); 
+	add_number_vaccinated_point(2021,2,15,800000); 
+	add_number_vaccinated_point(2021,2,28,1000000); 
+  end
+
+
+end
+
+
+class DataSet::EpiVacCorona < DataSet::Base
+
+  def initialize(args=Hash.new)
+    @name = "EpiVacCorona"
+    @type = "Peptide vaccine"
+    @developer = "Federal Research Institution of Russia"
+    super
+    setup
+  end
+
+  def add_all_efficacy
+    add_efficacy_point(10,77); 
+    add_efficacy_point(30,75); 
+    add_efficacy_point(40,74); 
+    add_efficacy_point(80,70);
+    add_efficacy_point(100,68);	
+  end
+
+  def add_all_vaccinated
+    add_number_vaccinated_point(2020,12,01,6000); 
+    add_number_vaccinated_point(2020,12,30,40000); 
+    add_number_vaccinated_point(2021,1,01,400000); 
+	add_number_vaccinated_point(2021,2,15,800000); 
+	add_number_vaccinated_point(2021,2,28,1000000); 
+  end
+
+
+end
+
+
+
