@@ -133,7 +133,8 @@ class DataSet::MRNA1273 < DataSet::Base
     add_efficacy_point(10,95); 
     add_efficacy_point(30,85); 
     add_efficacy_point(40,76); 
-    add_efficacy_point(80,56); 
+    add_efficacy_point(80,56);
+    add_efficacy_point(100,46); 	
   end
 
   def add_all_vaccinated
@@ -192,6 +193,37 @@ class DataSet::EpiVacCorona < DataSet::Base
     add_efficacy_point(40,74); 
     add_efficacy_point(80,70);
     add_efficacy_point(100,68);	
+  end
+
+  def add_all_vaccinated
+    add_number_vaccinated_point(2020,12,01,6000); 
+    add_number_vaccinated_point(2020,12,30,40000); 
+    add_number_vaccinated_point(2021,1,01,400000); 
+	add_number_vaccinated_point(2021,2,15,800000); 
+	add_number_vaccinated_point(2021,2,28,1000000); 
+  end
+
+
+end
+
+
+
+class DataSet::BBIBPCorV < DataSet::Base
+
+  def initialize(args=Hash.new)
+    @name = "BBIBPCorV"
+    @type = "Inactivated"
+    @developer = "Sinopharm"
+    super
+    setup
+  end
+
+  def add_all_efficacy
+    add_efficacy_point(10,80); 
+    add_efficacy_point(30,60); 
+    add_efficacy_point(40,50); 
+    add_efficacy_point(80,10);
+    add_efficacy_point(100,0);	
   end
 
   def add_all_vaccinated

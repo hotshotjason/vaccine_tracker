@@ -164,7 +164,12 @@ class Vaccine
 	
 	###################### fourth vaccine #########################
     current_vaccine = Vaccine.new
-    current_data = DataSet::EpiVacCorona.new
+    current_data = DataSet::EpiVacCorona.new    
+    add_data!(current_vaccine,current_data)
+	
+	###################### fourth vaccine #########################
+    current_vaccine = Vaccine.new
+    current_data = DataSet::BBIBPCorV.new    
     add_data!(current_vaccine,current_data)
 	
     ################## VERY END ##########################
