@@ -172,6 +172,20 @@ class Vaccine
     current_data = DataSet::BBIBPCorV.new    
     add_data!(current_vaccine,current_data)
 	
+	###################### fifth vaccine #########################
+    current_vaccine = Vaccine.new
+    current_data = DataSet::NVXCoV2373.new    
+    add_data!(current_vaccine,current_data)
+	
+	###################### sixth vaccine #########################
+    current_vaccine = Vaccine.new
+    current_data = DataSet::RBDDimer.new    
+    add_data!(current_vaccine,current_data)
+	
+	###################### seventh vaccine #########################
+    current_vaccine = Vaccine.new
+    current_data = DataSet::PlantbasedVLP.new    
+    add_data!(current_vaccine,current_data)
     ################## VERY END ##########################
     @@all_vaccines_chart.make_chart!
     

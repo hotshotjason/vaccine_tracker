@@ -219,19 +219,114 @@ class DataSet::BBIBPCorV < DataSet::Base
   end
 
   def add_all_efficacy
-    add_efficacy_point(10,80); 
-    add_efficacy_point(30,60); 
-    add_efficacy_point(40,50); 
-    add_efficacy_point(80,10);
+    add_efficacy_point(10,90); 
+    add_efficacy_point(30,70); 
+    add_efficacy_point(40,40); 
+    add_efficacy_point(80,20);
     add_efficacy_point(100,0);	
   end
 
   def add_all_vaccinated
-    add_number_vaccinated_point(2020,12,01,6000); 
-    add_number_vaccinated_point(2020,12,30,40000); 
-    add_number_vaccinated_point(2021,1,01,400000); 
+    add_number_vaccinated_point(2020,12,01,5000); 
+    add_number_vaccinated_point(2020,12,30,70000); 
+    add_number_vaccinated_point(2021,1,01,700000); 
+	add_number_vaccinated_point(2021,2,15,1000000); 
+	add_number_vaccinated_point(2021,2,28,2000000); 
+  end
+
+
+end
+
+
+
+class DataSet::NVXCoV2373 < DataSet::Base
+
+  def initialize(args=Hash.new)
+    @name = "NVX-CoV2373"
+    @type = "Protein Subunit"
+    @developer = "Novavax"
+    super
+    setup
+  end
+
+  def add_all_efficacy
+    add_efficacy_point(10,60); 
+    add_efficacy_point(30,50); 
+    add_efficacy_point(40,45); 
+    add_efficacy_point(80,25);
+    add_efficacy_point(100,15);	
+  end
+
+  def add_all_vaccinated
+    add_number_vaccinated_point(2020,12,01,4000); 
+    add_number_vaccinated_point(2020,12,30,70000); 
+    add_number_vaccinated_point(2021,1,01,700000); 
 	add_number_vaccinated_point(2021,2,15,800000); 
 	add_number_vaccinated_point(2021,2,28,1000000); 
+  end
+
+
+end
+
+
+
+class DataSet::RBDDimer < DataSet::Base
+
+  def initialize(args=Hash.new)
+    @name = "RBD-Dimer"
+    @type = "Protein Subunit"
+    @developer = "Anhui Zhifei Longcom"
+    super
+    setup
+  end
+
+  def add_all_efficacy
+    add_efficacy_point(10,70); 
+    add_efficacy_point(30,68); 
+    add_efficacy_point(40,67); 
+    add_efficacy_point(80,63);
+    add_efficacy_point(81,20);	
+    add_efficacy_point(100,18);	
+  end
+
+  def add_all_vaccinated
+    add_number_vaccinated_point(2020,12,01,6000); 
+    add_number_vaccinated_point(2020,12,30,6500); 
+    add_number_vaccinated_point(2021,1,01,7000); 
+	add_number_vaccinated_point(2021,2,15,9000); 
+	add_number_vaccinated_point(2021,2,28,10000); 
+  end
+
+
+end
+
+
+
+class DataSet::PlantbasedVLP < DataSet::Base
+
+  def initialize(args=Hash.new)
+    @name = "Plant-based VLP"
+    @type = "VLP"
+    @developer = "Medicago"
+    super
+    setup
+  end
+
+  def add_all_efficacy
+    add_efficacy_point(10,55); 
+    add_efficacy_point(30,50); 
+    add_efficacy_point(50,45); 
+    add_efficacy_point(70,40);
+    add_efficacy_point(90,35);	
+    add_efficacy_point(100,33);	
+  end
+
+  def add_all_vaccinated
+    add_number_vaccinated_point(2020,12,01,4000); 
+    add_number_vaccinated_point(2020,12,30,6500); 
+    add_number_vaccinated_point(2021,1,01,6700); 
+	add_number_vaccinated_point(2021,2,15,9000); 
+	add_number_vaccinated_point(2021,2,28,9300); 
   end
 
 

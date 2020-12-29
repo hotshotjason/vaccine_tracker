@@ -137,7 +137,7 @@ end
 # must define a unqiue id:  field if you want to be able to click on "Expand" link for full view
 class ChartMaker::Base
 
-  @@colors = ["green","red","orange","blue","brown","black","yellow","grey","purple","darkred","gold","lime","olive","teal","cyan","cornsilk","darkslategray"]
+  @@colors = ["green","red","orange","blue","brown","black","olive","grey","purple","darkred","gold","lime","teal","cyan","cornsilk","darkslategray"]
   include HtmlHelper
   def initialize(args)
     @args = args
