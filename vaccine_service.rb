@@ -186,6 +186,11 @@ class Vaccine
     current_vaccine = Vaccine.new
     current_data = DataSet::PlantbasedVLP.new    
     add_data!(current_vaccine,current_data)
+	
+	###################### eighth vaccine #########################
+    current_vaccine = Vaccine.new
+    current_data = DataSet::AG0301COVID19.new    
+    add_data!(current_vaccine,current_data)
     ################## VERY END ##########################
     @@all_vaccines_chart.make_chart!
     

@@ -322,15 +322,46 @@ class DataSet::PlantbasedVLP < DataSet::Base
   end
 
   def add_all_vaccinated
-    add_number_vaccinated_point(2020,12,01,4000); 
-    add_number_vaccinated_point(2020,12,30,6500); 
-    add_number_vaccinated_point(2021,1,01,6700); 
-	add_number_vaccinated_point(2021,2,15,9000); 
-	add_number_vaccinated_point(2021,2,28,9300); 
+    add_number_vaccinated_point(2020,12,01,4100); 
+    add_number_vaccinated_point(2020,12,30,6700); 
+    add_number_vaccinated_point(2021,1,01,6800); 
+	add_number_vaccinated_point(2021,2,15,9900); 
+	add_number_vaccinated_point(2021,2,28,1000); 
   end
 
 
 end
 
+
+
+class DataSet::AG0301COVID19 < DataSet::Base
+
+  def initialize(args=Hash.new)
+    @name = "AG0301-COVID19"
+    @type = "DNA"
+    @developer = "AnGes"
+	super
+    setup
+  end
+
+  def add_all_efficacy
+    add_efficacy_point(10,51); 
+    add_efficacy_point(30,50); 
+    add_efficacy_point(50,49); 
+    add_efficacy_point(70,48);
+    add_efficacy_point(71,20);	
+    add_efficacy_point(100,10);	
+  end
+
+  def add_all_vaccinated
+    add_number_vaccinated_point(2020,12,01,3000); 
+    add_number_vaccinated_point(2020,12,30,4000); 
+    add_number_vaccinated_point(2021,1,01,5000); 
+	add_number_vaccinated_point(2021,2,15,6000); 
+	add_number_vaccinated_point(2021,2,28,7000); 
+  end
+
+
+end
 
 
